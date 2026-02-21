@@ -4,6 +4,20 @@ import { configureDiagramsPlugin } from 'vitepress-plugin-diagrams'
 import markmapPlugin from '@vitepress-plugin/markmap'
 // import markdownItInclude from 'markdown-it-include';
 import includeAndFixImages from 'vitepress-include-plugin'
+import { generateSidebar } from 'vitepress-sidebar';
+
+
+// TODO: 不尽人意，页面的 Footer不对， 算了， 先这样吧
+console.log(generateSidebar({
+  documentRootPath: '/',
+  scanStartPath: '/development',
+  basePath: '/development/',
+  resolvePath: '/development/', 
+  useTitleFromFileHeading: true,
+  sortMenusByFrontmatterDate: true,
+  sortMenusOrderByDescending: true,
+  excludeFilesByFrontmatterFieldName: 'hide',
+}));
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -31,24 +45,36 @@ export default defineConfig({
         sidebarMenuLabel: '菜单',
         skipToContentLabel: '跳转到内容',
         nav: [
-          { text: '首页', link: '/' },
+          // { text: '首页', link: '/' },
           { text: '项目清单', link: '/projects' },
-          { text: '更新日志', link: '/changelog' },
+          { text: '更新纪要', link: '/changelog' },
           { text: '开发随记', link: '/development/' }
         ],
-
-        // sidebar: [
-        //   { text: '版本历史', link: '/changelog' },
-        //   {
-        //     text: '开发笔记',
-        //     items: [
-        //       { text: '开发随手纪要', link: '/development' },
-        //       { text: 'Tiled地图解析思路', link: '/development/Tiled地图解析思路' },
-        //       { text: '转成网页游戏的过程', link: '/development/WebAssembly_Porting_Tutorial' }
-        //     ]
-        //   }
-        // ],
-
+        sidebar: [
+          ...[
+            { text: '更新纪要', link: '/changelog' },
+            {
+              text: '开发随记',
+              items: (generateSidebar({
+                documentRootPath: '/',
+                scanStartPath: '/development',
+                basePath: '/development/',
+                resolvePath: '/development/', 
+                useTitleFromFileHeading: true,
+                sortMenusByFrontmatterDate: true,
+                sortMenusOrderByDescending: true,
+                excludeFilesByFrontmatterFieldName: 'hide',
+              }) as any[]),
+            }
+          ],
+          // ...(generateSidebar({
+          //   documentRootPath: '',
+          //   scanStartPath: '/development',
+          //   basePath: '/development/',
+          //   // resolvePath: '/development/', 
+          //   useTitleFromFileHeading: true
+          // }) as any[])
+        ],
         socialLinks: [
           { icon: 'github', link: 'https://github.com/upidea/' }
         ]

@@ -1,3 +1,7 @@
+---
+date: 2026-2-21 15:18:00
+---
+
 ## 基础
     关于 entt::entity 的补充， 它是 ```enum class entity:id_type{};```, 
 有作用域枚举（scoped enum）的底层类型指定, 定义一个有作用域的枚举类型 entity，

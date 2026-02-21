@@ -1,5 +1,6 @@
 ---
 outline: deep
+hide: true
 ---
 
 # Runtime API Examples
