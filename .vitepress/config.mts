@@ -5,19 +5,23 @@ import markmapPlugin from '@vitepress-plugin/markmap'
 // import markdownItInclude from 'markdown-it-include';
 import includeAndFixImages from 'vitepress-include-plugin'
 import { generateSidebar } from 'vitepress-sidebar';
+import { link } from 'node:fs'
 
 
 // TODO: 不尽人意，页面的 Footer不对， 算了， 先这样吧
-console.log(generateSidebar({
-  documentRootPath: '/',
-  scanStartPath: '/development',
-  basePath: '/development/',
-  resolvePath: '/development/', 
-  useTitleFromFileHeading: true,
-  sortMenusByFrontmatterDate: true,
-  sortMenusOrderByDescending: true,
-  excludeFilesByFrontmatterFieldName: 'hide',
-}));
+// console.log(generateSidebar({
+//   documentRootPath: '/',
+//   scanStartPath: '/development',
+//   basePath: '/development/',
+//   resolvePath: '/development/', 
+//   useTitleFromFileHeading: true,
+//   sortMenusByFrontmatterDate: true,
+//   sortMenusOrderByDescending: true,
+//   excludeFilesByFrontmatterFieldName: 'hide',
+// }).map(item => ({
+//   ...item,
+//   link: item.link.startsWith('/') ? item.link : `/${item.link}`
+// })));
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -50,11 +54,22 @@ export default defineConfig({
           { text: '更新纪要', link: '/changelog' },
           { text: '开发随记', link: '/development/' }
         ],
+        // sidebar: [
+        //   {
+        //     text: '开发笔记',
+        //     items: [
+        //       { text: '开发随手纪要', link: '/development' },
+        //       { text: 'Tiled地图解析思路', link: '/development/Tiled地图解析思路' },
+        //       { text: '转成网页游戏的过程', link: '/development/WebAssembly_Porting_Tutorial' }
+        //     ]
+        //   }
+        // ],        
         sidebar: [
           ...[
             { text: '更新纪要', link: '/changelog' },
             {
               text: '开发随记',
+              link: '/development/',
               items: (generateSidebar({
                 documentRootPath: '/',
                 scanStartPath: '/development',
@@ -64,7 +79,10 @@ export default defineConfig({
                 sortMenusByFrontmatterDate: true,
                 sortMenusOrderByDescending: true,
                 excludeFilesByFrontmatterFieldName: 'hide',
-              }) as any[]),
+              }) as any[]).map(item => ({
+                ...item,
+                link: item.link.startsWith('/') ? item.link : `/${item.link}`
+              })),
             }
           ],
           // ...(generateSidebar({
@@ -75,6 +93,24 @@ export default defineConfig({
           //   useTitleFromFileHeading: true
           // }) as any[])
         ],
+        // sidebar: [
+        //   {
+        //     text: '开发随记',
+        //     items: (generateSidebar({
+        //       documentRootPath: '/',
+        //       scanStartPath: '/development',
+        //       basePath: '/development/',
+        //       resolvePath: '/development/', 
+        //       useTitleFromFileHeading: true,
+        //       sortMenusByFrontmatterDate: true,
+        //       sortMenusOrderByDescending: true,
+        //       excludeFilesByFrontmatterFieldName: 'hide',
+        //     }) as any[]).map(item => ({
+        //       ...item,
+        //       link: item.link.startsWith('/') ? item.link : `/${item.link}`
+        //     })),
+        //   }
+        // ],
         socialLinks: [
           { icon: 'github', link: 'https://github.com/upidea/' }
         ]
