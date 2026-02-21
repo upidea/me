@@ -1,0 +1,10 @@
+build
+Testing
+.DS_Store
+cmake_test_discovery_*.json
+node_modules
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+docs/public/diagrams/*
+!docs/public/diagrams/.gitkeep
+docs/public/diagrams/**/*
