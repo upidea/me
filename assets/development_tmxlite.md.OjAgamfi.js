@@ -1,4 +1,48 @@
-import{_ as i,o as a,c as n,af as h}from"./chunks/framework.DaHRzlxw.js";const g=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"development/tmxlite.md","filePath":"development/tmxlite.md"}'),k={name:"development/tmxlite.md"};function l(p,s,t,e,E,r){return a(),n("div",null,[...s[0]||(s[0]=[h(`<h2 id="" tabindex="-1"><a class="header-anchor" href="#" aria-label="Permalink to &quot;&quot;">​</a></h2><div class="language-c++ vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">c++</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">std</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">::vector</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">std</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">::unique_ptr</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&lt;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Texture</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&gt;&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> textures;</span></span>
+import{_ as a,o as n,c as l,j as s,af as h}from"./chunks/framework.DaHRzlxw.js";const y=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"development/tmxlite.md","filePath":"development/tmxlite.md"}'),k={name:"development/tmxlite.md"};function p(t,i,e,E,r,d){return n(),l("div",null,[...i[0]||(i[0]=[s("h2",{id:"",tabindex:"-1"},[s("a",{class:"header-anchor",href:"#","aria-label":'Permalink to ""'},"​")],-1),s("figure",{class:"vpd-diagram vpd-diagram--mermaid",onclick:`
+        const figure = this;
+        const isFullscreen = figure.classList.contains('vpd-diagram--fullscreen');
+
+        document.querySelectorAll('.vpd-diagram').forEach(diagram => {
+          diagram.classList.remove('vpd-diagram--fullscreen');
+        });
+
+        if (!isFullscreen) {
+          figure.classList.add('vpd-diagram--fullscreen');
+        }
+      `},[s("img",{src:"/diagrams/mermaid-tmxlite-3-4b40cb4d8fabe19317c9db7704a2e49a.svg",alt:"mermaid Diagram",class:"vpd-diagram-image"})],-1),s("figure",{class:"vpd-diagram vpd-diagram--mermaid",onclick:`
+        const figure = this;
+        const isFullscreen = figure.classList.contains('vpd-diagram--fullscreen');
+
+        document.querySelectorAll('.vpd-diagram').forEach(diagram => {
+          diagram.classList.remove('vpd-diagram--fullscreen');
+        });
+
+        if (!isFullscreen) {
+          figure.classList.add('vpd-diagram--fullscreen');
+        }
+      `},[s("img",{src:"/diagrams/mermaid-tmxlite-4-901d56738ff6c2b1a442503936fe4994.svg",alt:"mermaid Diagram",class:"vpd-diagram-image"})],-1),s("figure",{class:"vpd-diagram vpd-diagram--mermaid",onclick:`
+        const figure = this;
+        const isFullscreen = figure.classList.contains('vpd-diagram--fullscreen');
+
+        document.querySelectorAll('.vpd-diagram').forEach(diagram => {
+          diagram.classList.remove('vpd-diagram--fullscreen');
+        });
+
+        if (!isFullscreen) {
+          figure.classList.add('vpd-diagram--fullscreen');
+        }
+      `},[s("img",{src:"/diagrams/mermaid-tmxlite-5-ede375ac84bff25181ed2634f4104fc1.svg",alt:"mermaid Diagram",class:"vpd-diagram-image"})],-1),s("figure",{class:"vpd-diagram vpd-diagram--mermaid",onclick:`
+        const figure = this;
+        const isFullscreen = figure.classList.contains('vpd-diagram--fullscreen');
+
+        document.querySelectorAll('.vpd-diagram').forEach(diagram => {
+          diagram.classList.remove('vpd-diagram--fullscreen');
+        });
+
+        if (!isFullscreen) {
+          figure.classList.add('vpd-diagram--fullscreen');
+        }
+      `},[s("img",{src:"/diagrams/mermaid-tmxlite-6-dc6bf2c339447e06bf17aa77c0a2c61c.svg",alt:"mermaid Diagram",class:"vpd-diagram-image"})],-1),h(`<div class="language-c++ vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">c++</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">std</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">::vector</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">std</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">::unique_ptr</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&lt;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Texture</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&gt;&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> textures;</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">std</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">::vector</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">std</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">::unique_ptr</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&lt;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">MapLayer</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&gt;&gt;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> renderLayers;</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">//load the tile map</span></span>
@@ -63,4 +107,4 @@ import{_ as i,o as a,c as n,af as h}from"./chunks/framework.DaHRzlxw.js";const g
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        l-&gt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">draw</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(renderer);</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">    SDL_RenderPresent</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(renderer);</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></div>`,2)])])}const y=i(k,[["render",l]]);export{g as __pageData,y as default};
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></div>`,1)])])}const c=a(k,[["render",p]]);export{y as __pageData,c as default};
