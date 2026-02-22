@@ -1,1 +1,0 @@
-import{_ as a,o as e,c as s,af as l}from"./chunks/framework.DaHRzlxw.js";const f=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"README.md","filePath":"README.md"}'),o={name:"README.md"};function i(r,t,c,n,_,d){return e(),s("div",null,[...t[0]||(t[0]=[l("",2)])])}const p=a(o,[["render",i]]);export{f as __pageData,p as default};
