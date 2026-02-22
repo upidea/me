@@ -2,7 +2,7 @@
 date: 2026-2-21 15:18:00
 ---
 
-## 基础
+## Entt 基础
     关于 entt::entity 的补充， 它是 ```enum class entity:id_type{};```, 
 有作用域枚举（scoped enum）的底层类型指定, 定义一个有作用域的枚举类型 entity，
 使用 id_type 作为其底层存储类型。当做整数需要转换```entt::to_integral(some_entity)```（```static_cast<id_type>(e)```）。指定了底层类型的枚举可以前向声明。

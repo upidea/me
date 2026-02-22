@@ -1,15 +1,21 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, DefaultTheme } from 'vitepress'
 import { tasklist } from '@mdit/plugin-tasklist'
 import { configureDiagramsPlugin } from 'vitepress-plugin-diagrams'
 import markmapPlugin from '@vitepress-plugin/markmap'
 // import markdownItInclude from 'markdown-it-include';
+// @ts-ignore
 import includeAndFixImages from 'vitepress-include-plugin'
 import { generateSidebar } from 'vitepress-sidebar';
-import { link } from 'node:fs'
 
+const processSidebarItems = (items: any[]): DefaultTheme.SidebarItem[] => 
+  items.map(item => ({
+    ...item,
+    link: item.link?.startsWith('/') ? item.link : `/${item.link}`,
+    items: item.items ? processSidebarItems(item.items) : undefined
+  }));
 
-// TODO: 不尽人意，页面的 Footer不对， 算了， 先这样吧
-// console.log(generateSidebar({
+// // TODO: 不尽人意，页面的 Footer不对， 算了， 先这样吧
+// var x = generateSidebar({
 //   documentRootPath: '/',
 //   scanStartPath: '/development',
 //   basePath: '/development/',
@@ -18,7 +24,9 @@ import { link } from 'node:fs'
 //   sortMenusByFrontmatterDate: true,
 //   sortMenusOrderByDescending: true,
 //   excludeFilesByFrontmatterFieldName: 'hide',
-// }).map(item => ({
+// })
+// console.log(JSON.stringify(x, null, 4) );
+// .map(item => ({
 //   ...item,
 //   link: item.link.startsWith('/') ? item.link : `/${item.link}`
 // })));
@@ -70,7 +78,7 @@ export default defineConfig({
             {
               text: '开发随记',
               link: '/development/',
-              items: (generateSidebar({
+              items: processSidebarItems(generateSidebar({
                 documentRootPath: '/',
                 scanStartPath: '/development',
                 basePath: '/development/',
@@ -79,10 +87,7 @@ export default defineConfig({
                 sortMenusByFrontmatterDate: true,
                 sortMenusOrderByDescending: true,
                 excludeFilesByFrontmatterFieldName: 'hide',
-              }) as any[]).map(item => ({
-                ...item,
-                link: item.link.startsWith('/') ? item.link : `/${item.link}`
-              })),
+              }) as any[]),
             }
           ],
           // ...(generateSidebar({
