@@ -5,6 +5,3 @@ cmake_test_discovery_*.json
 node_modules
 .vitepress/cache/
 .vitepress/dist/
-public/diagrams/*
-!public/diagrams/.gitkeep
-public/diagrams/**/*
