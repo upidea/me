@@ -10,6 +10,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # 添加环境变量，强制使用 Node.js 24 运行 actions
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,12 +21,14 @@ jobs:
       - name: Set node
         uses: actions/setup-node@v4
         with:
-          node-version: 23.x
+          # 把 Node.js 23.x 换成更稳定的 20.x（23是奇数版本，稳定性差，这是构建失败的核心原因）
+          node-version: 20.x
           cache: 'npm'
           cache-dependency-path: package-lock.json
       - name: Install dependencies
         working-directory: .
-        run: npm install
+        # 增加 --force 解决潜在的依赖冲突，增加 --legacy-peer-deps 兼容旧依赖
+        run: npm install --force --legacy-peer-deps
       - name: Build
         working-directory: .
         run: npm run docs:build
@@ -32,3 +37,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .vitepress/dist
+
