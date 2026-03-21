@@ -338,7 +338,26 @@ export default defineConfig({
         width: '100%',
         height: '500px'
       }),
-      includeAndFixImages()
+      includeAndFixImages(),
+      {
+        name: 'escape-interpolation',
+        enforce: 'pre',
+        transform(code, id) {
+          // 如果是 RmlUi 相关的 markdown 文件
+          if (id.includes('rmlui') && id.endsWith('.md')) {
+            // 使用正则表达式替换 XML 代码块中的 {{ 和 }}
+            return code.replace(/```xml\n([\s\S]*?)```/g, (match, content) => {
+              // 将 {{ 替换为 {v-pre{
+              // 将 }} 替换为 }v-pre}
+              const escapedContent = content
+                .replace(/\{\{/g, '{v-pre{')
+                .replace(/\}\}/g, '}v-pre}')
+              return '```xml\n' + escapedContent + '```'
+            })
+          }
+          return code
+        }
+      }
     ]
   },
   markdown: {
@@ -349,6 +368,15 @@ export default defineConfig({
         krokiServerUrl: "https://kroki.io",
         // excludeDiagramTypes: ["mermaid"],`
       });
-    }
+
+      // 禁用行内代码的 Vue 插值解析
+      const defaultCodeInline = md.renderer.rules.code_inline
+      md.renderer.rules.code_inline = (tokens, idx, options, env, self) => {
+        tokens[idx].attrSet('v-pre', '')
+        return defaultCodeInline(tokens, idx, options, env, self)
+      }
+    },
+    // 禁用所有插值
+    interpolate: false
   }
 })

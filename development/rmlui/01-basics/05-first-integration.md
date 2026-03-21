@@ -569,8 +569,8 @@ if (!doc) {
 
 恭喜完成基础集成！接下来："
 
-- 进入 [阶段二](../../02-layout-style/README.md) 学习高级布局和样式
-- 查看 [阶段三](../../03-interaction-data/README.md) 学习数据绑定
+- 进入 [阶段二](../02-layout-style/README.md) 学习高级布局和样式
+- 查看 [阶段三](../03-interaction-data/README.md) 学习数据绑定
 
 ---
 
