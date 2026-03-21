@@ -3,6 +3,13 @@ date: 2026-2-21 15:18:00
 ---
 
 ## Entt 基础
+- entt::entity
+是 registry.create() 创建的实体对象。它在内部持有一个 id_type 类型的标识符（“身份证号”）。这个 ID 在注册表中是唯一的，用于定位实体关联的所有组件。
+
+- entt::hashed_string 与 entt::id_type
+hashed_string 的作用就是在编译期将字符串（如 "Transform"）计算成一个哈希值，而这个哈希值的类型正是 entt::id_type。
+所以，hashed_string 可以隐式转换为 id_type，因为本质上它就是产生了一个 id_type 的数值。这样，你就可以方便地将一个命名类型（如“Transform”）与一个数字 ID 关联起来，用于后续的运行时类型查找等操作。
+
     关于 entt::entity 的补充， 它是 ```enum class entity:id_type{};```, 
 有作用域枚举（scoped enum）的底层类型指定, 定义一个有作用域的枚举类型 entity，
 使用 id_type 作为其底层存储类型。当做整数需要转换```entt::to_integral(some_entity)```（```static_cast<id_type>(e)```）。指定了底层类型的枚举可以前向声明。
